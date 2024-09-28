@@ -6,12 +6,12 @@ interface Props {
     posts: Post[];
 }
 
-export default function ActivityDashboard(props: Props) {
+export default function ActivityDashboard({posts}: Props) {
     return (
         <Grid>
             <Grid.Column width="10">
                 <List>
-                    {props.posts.map((post) => (
+                    {posts.map((post) => (
                     <List.Item key={post.id}>
                         {post.title}
                     </List.Item>
