@@ -3,6 +3,7 @@ import './App.css'
 import axios from 'axios'
 import { Header, List } from 'semantic-ui-react'
 import { Post } from './models/post'
+import NavBar from './layout/NavBar'
 
 function App() {
   const [posts, setPosts] = useState<Post[]>([])
@@ -16,7 +17,7 @@ function App() {
 
   return (
     <div>
-      <Header as="h2" content="Posts" icon="users"/>
+      <NavBar/>
 
       <List>
         {posts.map((post) => (
@@ -31,3 +32,14 @@ function App() {
 }
 
 export default App
+
+
+
+
+
+
+
+
+
+
+{/* <Header as="h2" content="Posts" icon="users"/> */}
