@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import axios from 'axios'
-import { Header, List } from 'semantic-ui-react'
+import { Container, Header, List } from 'semantic-ui-react'
 import { Post } from './models/post'
 import NavBar from './layout/NavBar'
+import ActivityDashboard from './layout/ActivityDashboard'
 
 function App() {
   const [posts, setPosts] = useState<Post[]>([])
@@ -19,13 +20,9 @@ function App() {
     <div>
       <NavBar/>
 
-      <List>
-        {posts.map((post) => (
-          <List.Item key={post.id}>
-            {post.title}
-          </List.Item>
-        ))}
-      </List>
+      <Container style={{marginTop: "7em"}}/>
+
+      <ActivityDashboard posts={posts}/>
 
     </div>
   )
