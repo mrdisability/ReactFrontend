@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import axios from 'axios'
+import { Header, List } from 'semantic-ui-react'
 
 function App() {
   const [posts, setPosts] = useState([])
@@ -14,14 +15,16 @@ function App() {
 
   return (
     <div>
-      <h1>Posts</h1>
-      <ul>
+      <Header as="h2" content="Posts" icon="users"/>
+
+      <List>
         {posts.map((post: any) => (
-          <li key={post.id}>
+          <List.Item key={post.id}>
             {post.title}
-          </li>
+          </List.Item>
         ))}
-      </ul>
+      </List>
+
     </div>
   )
 }
