@@ -7,7 +7,7 @@ interface Props {
 
 export default function PostDetails({post}: Props) {
     return (
-        <Card>
+        <Card fluid>
             {/* <Image src='/images/avatar/large/matthew.png' wrapped ui={false} /> */}
             <CardContent>
             <CardHeader>{post.title}</CardHeader>

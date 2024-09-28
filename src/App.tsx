@@ -5,6 +5,7 @@ import { Container, Header, List } from 'semantic-ui-react'
 import { Post } from './models/post'
 import NavBar from './layout/NavBar'
 import PostDashboard from './layout/PostDashboard'
+import PostForm from './layout/PostForm'
 
 function App() {
   const [posts, setPosts] = useState<Post[]>([])
@@ -24,6 +25,7 @@ function App() {
 
       <PostDashboard posts={posts}/>
 
+      <PostForm/>
     </div>
   )
 }

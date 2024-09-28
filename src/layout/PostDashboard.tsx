@@ -1,4 +1,3 @@
-import React from "react";
 import { Grid, Item, ItemContent, ItemDescription, ItemExtra, ItemHeader, ItemMeta, List, Segment } from "semantic-ui-react";
 import { Post } from "../models/post";
 import PostDetails from "./PostDetails";
