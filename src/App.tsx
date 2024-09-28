@@ -4,7 +4,7 @@ import axios from 'axios'
 import { Container, Header, List } from 'semantic-ui-react'
 import { Post } from './models/post'
 import NavBar from './layout/NavBar'
-import ActivityDashboard from './layout/ActivityDashboard'
+import PostDashboard from './layout/PostDashboard'
 
 function App() {
   const [posts, setPosts] = useState<Post[]>([])
@@ -22,7 +22,7 @@ function App() {
 
       <Container style={{marginTop: "7em"}}/>
 
-      <ActivityDashboard posts={posts}/>
+      <PostDashboard posts={posts}/>
 
     </div>
   )
