@@ -5,7 +5,7 @@ import PostForm from "./PostForm";
 
 interface Props {
     posts: Post[];
-    selectedPost: Post;
+    selectedPost: Post | undefined;
     selectPost: (id: string) => void;
     cancelSelectPost: () => void;
 }
@@ -39,7 +39,7 @@ export default function PostDashboard({posts, selectedPost,
             </Grid.Column>
             <Grid.Column width="6">
                 {selectedPost &&
-                    <PostDetails post={selectedPost} />}
+                    <PostDetails post={selectedPost} cancelSelectPost={cancelSelectPost}/>}
 
                 <PostForm/>
             </Grid.Column>

@@ -1,11 +1,12 @@
-import { Card, CardContent, CardDescription, CardHeader, CardMeta, Icon } from "semantic-ui-react";
+import { Button, Card, CardContent, CardDescription, CardHeader, CardMeta, Icon } from "semantic-ui-react";
 import { Post } from "../models/post";
 
 interface Props {
     post: Post;
+    cancelSelectPost: () => void;
 }
 
-export default function PostDetails({post}: Props) {
+export default function PostDetails({post, cancelSelectPost}: Props) {
     return (
         <Card fluid>
             {/* <Image src='/images/avatar/large/matthew.png' wrapped ui={false} /> */}
@@ -22,6 +23,12 @@ export default function PostDetails({post}: Props) {
             <a>
                 <Icon name='user' />
                 {post.tag}
+                
+                {/* Edit and cancel buttons */}
+                <Button.Group widths="2">
+                    <Button basic color="blue" content="Edit"/>
+                    <Button onClick={cancelSelectPost} basic color="grey" content="Cancel"/>
+                </Button.Group>
             </a>
             </CardContent>
         </Card>
