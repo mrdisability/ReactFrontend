@@ -9,12 +9,12 @@ interface Props {
     selectPost: (id: string) => void;
     cancelSelectPost: () => void;
     editMode: boolean;
-    openForm: (id: string) => void;
-    closeForm: () => void;
+    handleFormOpen: (id: string) => void;
+    handleFormClose: () => void;
 }
 
 export default function PostDashboard({posts, selectedPost, 
-    selectPost, cancelSelectPost, openForm, closeForm, editMode}: Props) {
+    selectPost, cancelSelectPost, handleFormOpen, handleFormClose, editMode}: Props) {
     return (
         <Grid>
             <Grid.Column width="10">
@@ -45,10 +45,10 @@ export default function PostDashboard({posts, selectedPost,
                     <PostDetails 
                         post={selectedPost} 
                         cancelSelectPost={cancelSelectPost}
-                        openForm={openForm}/>}
+                        handleFormOpen={handleFormOpen}/>}
 
                 {/* Only open when in edit mode */}
-                {editMode && <PostForm closeForm={closeForm}/>}
+                {editMode && <PostForm handleFormClose={handleFormClose}/>}
                 
             </Grid.Column>
         </Grid>

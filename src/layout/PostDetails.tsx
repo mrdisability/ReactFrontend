@@ -4,10 +4,10 @@ import { Post } from "../models/post";
 interface Props {
     post: Post;
     cancelSelectPost: () => void;
-    openForm: (id: string) => void;
+    handleFormOpen: (id: string) => void;
 }
 
-export default function PostDetails({post, cancelSelectPost, openForm}: Props) {
+export default function PostDetails({post, cancelSelectPost, handleFormOpen}: Props) {
     return (
         <Card fluid>
             {/* <Image src='/images/avatar/large/matthew.png' wrapped ui={false} /> */}
@@ -27,7 +27,7 @@ export default function PostDetails({post, cancelSelectPost, openForm}: Props) {
                 
                 {/* Edit and cancel buttons */}
                 <Button.Group widths="2">
-                    <Button onClick={() => openForm(post.id)} basic color="blue" content="Edit"/>
+                    <Button onClick={() => handleFormOpen(post.id)} basic color="blue" content="Edit"/>
                     <Button onClick={cancelSelectPost} basic color="grey" content="Cancel"/>
                 </Button.Group>
             </a>

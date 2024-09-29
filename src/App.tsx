@@ -47,6 +47,7 @@ function App() {
         cancelSelectPost={handleCancelSelectPost}
         handleFormOpen={handleFormOpen}
         handleFormClose={handleFormClose}
+        editMode={editMode}
         />
     </div>
   )
