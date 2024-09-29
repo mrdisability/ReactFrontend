@@ -1,4 +1,4 @@
-import { Button, Grid, Item, ItemContent, ItemDescription, ItemExtra, ItemHeader, ItemMeta, Label, List, Segment } from "semantic-ui-react";
+import { Button, Grid, Item, ItemContent, ItemDescription, ItemExtra, ItemHeader, ItemMeta, Label, Segment } from "semantic-ui-react";
 import { Post } from "../models/post";
 import PostDetails from "./PostDetails";
 import PostForm from "./PostForm";
