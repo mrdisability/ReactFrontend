@@ -5,10 +5,18 @@ import { Container, Header, List } from 'semantic-ui-react'
 import { Post } from './models/post'
 import NavBar from './layout/NavBar'
 import PostDashboard from './layout/PostDashboard'
-import PostForm from './layout/PostForm'
 
 function App() {
-  const [posts, setPosts] = useState<Post[]>([])
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [selectedPost, setSelectedPost] = useState<Post | undefined>(undefined);
+
+  function handleSelectPost(id: string) {
+    setSelectedPost(posts.find(x => x.id === id));
+  }
+
+  function handleCancelSelectPost() {
+    setSelectedPost(undefined);
+  }
 
   useEffect(() => {
     axios.get<Post[]>("http://localhost:5032/api/posts")
@@ -23,7 +31,11 @@ function App() {
 
       <Container style={{marginTop: "7em"}}/>
 
-      <PostDashboard posts={posts}/>
+      <PostDashboard posts={posts}
+        selectedPost={selectedPost}
+        selectPost={handleSelectPost}
+        cancelSelectPost={handleCancelSelectPost}
+        />
     </div>
   )
 }
