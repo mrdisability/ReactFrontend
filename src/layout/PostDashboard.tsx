@@ -1,6 +1,7 @@
 import { Grid, Item, ItemContent, ItemDescription, ItemExtra, ItemHeader, ItemMeta, List, Segment } from "semantic-ui-react";
 import { Post } from "../models/post";
 import PostDetails from "./PostDetails";
+import PostForm from "./PostForm";
 
 interface Props {
     posts: Post[];
@@ -30,6 +31,8 @@ export default function PostDashboard({posts}: Props) {
             <Grid.Column width="6">
                 {posts[0] &&
                     <PostDetails post={posts[0]} />}
+
+                <PostForm/>
             </Grid.Column>
         </Grid>
     )

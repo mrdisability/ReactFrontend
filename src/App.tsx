@@ -24,8 +24,6 @@ function App() {
       <Container style={{marginTop: "7em"}}/>
 
       <PostDashboard posts={posts}/>
-
-      <PostForm/>
     </div>
   )
 }
