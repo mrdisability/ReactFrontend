@@ -14,7 +14,12 @@ export default function PostDetails({post, cancelSelectPost, handleFormOpen}: Pr
             <CardContent>
             <CardHeader>{post.title}</CardHeader>
             <CardMeta>
-                <span className='date'>{post.createdDate}</span>
+                <span className='date'>
+                    {/* Showing date in a more user friendly format */}
+                    {new Date(post.createdDate).toLocaleDateString('en-NZ')}
+                    
+                    {/* {post.createdDate} */}
+                </span>
             </CardMeta>
             <CardDescription>
                 {post.body}
@@ -22,7 +27,7 @@ export default function PostDetails({post, cancelSelectPost, handleFormOpen}: Pr
             </CardContent>
             <CardContent extra>
             <a>
-                <Icon name='user' />
+                <Icon name='desktop' />
                 {post.tag}
                 
                 {/* Edit and cancel buttons */}
