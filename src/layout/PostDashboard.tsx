@@ -49,7 +49,10 @@ export default function PostDashboard({posts, selectedPost,
                         handleFormOpen={handleFormOpen}/>}
 
                 {/* Only open when in edit mode */}
-                {editMode && <PostForm handleFormClose={handleFormClose}/>}
+                {editMode && 
+                    <PostForm 
+                        post={selectedPost}
+                        handleFormClose={handleFormClose}/>}
                 
             </Grid.Column>
         </Grid>
