@@ -24,16 +24,16 @@ export default function PostForm({post: selectedPost, handleFormClose}: Props) {
         console.log(post)
     }
 
-    function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
+    function handleInputChange(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
         const {name, value} = event.target;
         setPost({...post, [name]: value});
     }
 
     // Function for text area
-    function handleTextAreaChange(event: ChangeEvent<HTMLTextAreaElement>) {
-        const {name, value} = event.target;
-        setPost({...post, [name]: value});
-    }
+    // function handleTextAreaChange(event: ChangeEvent<HTMLTextAreaElement>) {
+    //     const {name, value} = event.target;
+    //     setPost({...post, [name]: value});
+    // }
 
     return (
         <Segment clearing>
@@ -42,7 +42,7 @@ export default function PostForm({post: selectedPost, handleFormClose}: Props) {
                     onChange={handleInputChange}/>
 
                 <Form.TextArea placeholder="Body"
-                    name="body" value={post.body} onChange={handleTextAreaChange}/>
+                    name="body" value={post.body} onChange={handleInputChange}/>
 
                 <Form.Input placeholder="Tag"
                     name="tag" value={post.tag} onChange={handleInputChange}/>
