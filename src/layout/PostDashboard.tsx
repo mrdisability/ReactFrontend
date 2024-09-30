@@ -41,7 +41,8 @@ export default function PostDashboard({posts, selectedPost,
                 </Segment>
             </Grid.Column>
             <Grid.Column width="6">
-                {selectedPost &&
+                {/* Show when not in editMode */}
+                {selectedPost && !editMode &&
                     <PostDetails 
                         post={selectedPost} 
                         cancelSelectPost={cancelSelectPost}
