@@ -1,6 +1,7 @@
 import { Button, Form, Segment } from "semantic-ui-react";
 import { Post } from "../models/post";
 import { ChangeEvent, useState } from "react";
+import { v4 as uuidv4 } from 'uuid';
 
 interface Props {
     post: Post | undefined;
@@ -10,12 +11,15 @@ interface Props {
 
 export default function PostForm({post: selectedPost, handleFormClose, handleCreateOrEditPost}: Props) {
 
+    const date = new Date();
+    let createdDate = date.toString();
+
     // Checing if post exists or not
     const initialState = selectedPost ?? {
-        id: '',
+        id: uuidv4(),
         title: '',
         body: '',
-        createdDate: '',
+        createdDate: createdDate,
         tag: ''
     }
 
