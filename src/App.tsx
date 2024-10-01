@@ -28,6 +28,14 @@ function App() {
     setEditMode(false);
   }
 
+  function handleCreateOrEditPost(post: Post) {
+    post.id
+      ? setPosts([...posts.filter(x => x.id !== post.id), post])
+      : setPosts([...posts, post]);
+    setEditMode(false);
+    setSelectedPost(post);
+  }
+
   useEffect(() => {
     axios.get<Post[]>("http://localhost:5032/api/posts")
       .then(res => {
@@ -48,6 +56,7 @@ function App() {
         handleFormOpen={handleFormOpen}
         handleFormClose={handleFormClose}
         editMode={editMode}
+        handleCreateOrEditPost={handleCreateOrEditPost}
         />
     </div>
   )

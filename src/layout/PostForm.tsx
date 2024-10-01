@@ -5,9 +5,10 @@ import { ChangeEvent, useState } from "react";
 interface Props {
     post: Post | undefined;
     handleFormClose: () => void;
+    handleCreateOrEditPost: (post: Post) => void;
 }
 
-export default function PostForm({post: selectedPost, handleFormClose}: Props) {
+export default function PostForm({post: selectedPost, handleFormClose, handleCreateOrEditPost}: Props) {
 
     // Checing if post exists or not
     const initialState = selectedPost ?? {
@@ -21,7 +22,9 @@ export default function PostForm({post: selectedPost, handleFormClose}: Props) {
     const [post, setPost] = useState(initialState);
 
     function handleSubmit() {
-        console.log(post)
+        console.log(post);
+
+        handleCreateOrEditPost(post);
     }
 
     function handleInputChange(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
