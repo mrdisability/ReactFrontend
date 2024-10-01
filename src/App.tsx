@@ -32,9 +32,12 @@ function App() {
   // ...post means it gets all the values of post
 
   function handleCreateOrEditPost(post: Post) {
+    const date = new Date();
+    let createdDate = date.toString();
+
     post.id
       ? setPosts([...posts.filter(x => x.id !== post.id), post])
-      : setPosts([...posts, {...post, id: uuid()}]);
+      : setPosts([...posts, {...post, id: uuid(), createdDate: createdDate}]);
     setEditMode(false);
     setSelectedPost(post);
   }
