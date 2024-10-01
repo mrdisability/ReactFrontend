@@ -5,6 +5,7 @@ import { Container } from 'semantic-ui-react'
 import { Post } from './models/post'
 import NavBar from './layout/NavBar'
 import PostDashboard from './layout/PostDashboard'
+import {v4 as uuid} from 'uuid'
 
 function App() {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -28,10 +29,12 @@ function App() {
     setEditMode(false);
   }
 
+  // ...post means it gets all the values of post
+
   function handleCreateOrEditPost(post: Post) {
     post.id
       ? setPosts([...posts.filter(x => x.id !== post.id), post])
-      : setPosts([...posts, post]);
+      : setPosts([...posts, {...post, id: uuid()}]);
     setEditMode(false);
     setSelectedPost(post);
   }
@@ -45,7 +48,7 @@ function App() {
 
   return (
     <div>
-      <NavBar/>
+      <NavBar formOpen={handleFormOpen}/>
 
       <Container style={{marginTop: "7em"}}/>
 
