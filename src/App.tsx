@@ -5,7 +5,8 @@ import { Container } from 'semantic-ui-react'
 import { Post } from './models/post'
 import NavBar from './layout/NavBar'
 import PostDashboard from './layout/PostDashboard'
-import {v4 as uuid} from 'uuid'
+// import {v4 as uuid} from 'uuid'
+import { v4 as uuidv4 } from 'uuid';
 
 function App() {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -32,14 +33,18 @@ function App() {
   // ...post means it gets all the values of post
 
   function handleCreateOrEditPost(post: Post) {
-    const date = new Date();
-    let createdDate = date.toString();
+    // const date = new Date();
+    // let createdDate = date.toString();
+
+    console.log(post)
 
     post.id
       ? setPosts([...posts.filter(x => x.id !== post.id), post])
-      : setPosts([...posts, {...post, id: uuid(), createdDate: createdDate}]);
+      : setPosts([...posts, {...post, id: uuidv4()}]);
     setEditMode(false);
     setSelectedPost(post);
+
+    console.log(post)
   }
 
   useEffect(() => {

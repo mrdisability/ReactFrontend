@@ -22,9 +22,9 @@ export default function PostForm({post: selectedPost, handleFormClose, handleCre
     const [post, setPost] = useState(initialState);
 
     function handleSubmit() {
-        console.log(post);
+        // console.log(post);
 
-        handleCreateOrEditPost(post);
+        handleCreateOrEditPost(post)
     }
 
     function handleInputChange(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
