@@ -15,11 +15,12 @@ interface Props {
     editPost: (post: Post) => void;
     createMode: boolean;
     createPost: (post: Post) => void;
+    deletePost: (id: string) => void;
 }
 
 export default function PostDashboard({posts, selectedPost, 
     selectPost, cancelSelectPost, handleFormOpen, handleFormClose, editMode,
-        editPost, createMode, createPost}: Props) {
+        editPost, createMode, createPost, deletePost}: Props) {
     return (
         <Grid>
             <Grid.Column width="10">
@@ -36,8 +37,14 @@ export default function PostDashboard({posts, selectedPost,
                                 <ItemExtra>
                                     <Label basic content={post.tag}/>
 
+                                    {/* Button to delete */}
+                                    <Button onClick={() => deletePost(post.id)} 
+                                        floated="right" content="Delete" color="red"/>
+
                                     {/* Button to view a post */}
-                                    <Button onClick={() => selectPost(post.id)} floated="right" content="View"/>
+                                    <Button onClick={() => selectPost(post.id)} 
+                                        floated="right" content="View"/>
+
                                 </ItemExtra>
                             </ItemContent>
                         </Item>

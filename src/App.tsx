@@ -15,21 +15,26 @@ function App() {
 
   function handleSelectPost(id: string) {
     setSelectedPost(posts.find(x => x.id === id));
+    setCreateMode(false);
   }
 
   function handleCancelSelectPost() {
     setSelectedPost(undefined);
+    setCreateMode(false);
   }
 
-  function handleFormOpen(id?: string) {
+  function handleEditFormOpen(id?: string) {
     id ? handleSelectPost(id) : handleCancelSelectPost();
     setEditMode(true);
+    setCreateMode(false);
   }
 
   // Show create form when pressing on navbar button
-  function handleCreateFormOpen(id?: string) {
-    setCreateMode(true);
+  function handleCreateFormOpen() {
+    setSelectedPost(undefined);
+    setCreateMode(false);
     setEditMode(false);
+    setCreateMode(true);
   }
 
   function handleFormClose() {
@@ -38,12 +43,15 @@ function App() {
   }
 
   // ...post means it gets all the values of post
-
   function handleEditPost(post: Post) {
     setPosts([...posts.filter(x => x.id !== post.id), post])
     setEditMode(false);
     setSelectedPost(post);
     setCreateMode(false);
+  }
+
+  function handleDeletePost(id: string) {
+    setPosts([...posts.filter(x => x.id !== id)])
   }
 
   function handleCreatePost(post: Post) {
@@ -72,12 +80,13 @@ function App() {
         selectedPost={selectedPost}
         selectPost={handleSelectPost}
         cancelSelectPost={handleCancelSelectPost}
-        handleFormOpen={handleFormOpen}
+        handleFormOpen={handleEditFormOpen}
         handleFormClose={handleFormClose}
         editMode={editMode}
         editPost={handleEditPost}
         createMode={createMode}
         createPost={handleCreatePost}
+        deletePost={handleDeletePost}
         />
     </div>
   )
