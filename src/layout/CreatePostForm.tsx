@@ -50,7 +50,7 @@ export default function CreatePostForm({post: selectedPost, handleFormClose, cre
                 
                 {/* Input for date not needed, will generate with date now */}
                 <Button floated="right" positive type="submit" content="Submit"/>
-                {/* <Button onClick={handleFormClose} floated="right" type="button" content="Cancel"/> */}
+                <Button onClick={handleFormClose} floated="right" type="button" content="Cancel"/>
             </Form>
         </Segment>
     )
