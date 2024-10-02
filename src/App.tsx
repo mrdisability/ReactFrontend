@@ -14,8 +14,8 @@ function App() {
   const [createMode, setCreateMode] = useState(false);
 
   useEffect(() => {
-    agent.Posts.list().then(res => {
-        setPosts(res)
+    agent.Posts.list().then(response => {
+        setPosts(response)
       })
 
     // axios.get<Post[]>("http://localhost:5032/api/posts")
