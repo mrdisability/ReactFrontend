@@ -36,6 +36,7 @@ export default function PostDashboard({posts, selectedPost,
                                 </ItemDescription>
                                 <ItemExtra>
                                     <Label basic content={post.tag}/>
+                                    <Label basic content={post.createdDate}/>
 
                                     {/* Button to delete */}
                                     <Button onClick={() => deletePost(post.id)} 
