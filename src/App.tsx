@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import axios from 'axios'
 import { Container } from 'semantic-ui-react'
 import { Post } from './models/post'
 import NavBar from './layout/NavBar'
 import PostDashboard from './layout/PostDashboard'
+import agent from './api/agent'
 
 function App() {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -14,10 +14,14 @@ function App() {
   const [createMode, setCreateMode] = useState(false);
 
   useEffect(() => {
-    axios.get<Post[]>("http://localhost:5032/api/posts")
-      .then(res => {
-        setPosts(res.data)
+    agent.Posts.list().then(res => {
+        setPosts(res)
       })
+
+    // axios.get<Post[]>("http://localhost:5032/api/posts")
+    //   .then(res => {
+    //     setPosts(res.data)
+    //   })
   })
 
   function handleSelectPost(id: string) {
