@@ -66,12 +66,16 @@ function App() {
   }
 
   function handleCreatePost(post: Post) {
-    setPosts([...posts, post]);
-    setEditMode(false);
-    setCreateMode(false);
-    setSelectedPost(post);
-
     console.log(post)
+    
+    agent.Posts.create(post).then(() => {
+      setPosts([...posts, post]);
+      setEditMode(false);
+      setCreateMode(false);
+      setSelectedPost(post);  
+    })
+
+    // console.log(post)
   }
 
   return (

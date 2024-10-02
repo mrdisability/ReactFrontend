@@ -13,7 +13,11 @@ const requests = {
 }
 
 const Posts = {
-    list: () => requests.get<Post[]>("/posts")
+    list: () => requests.get<Post[]>("/posts"),
+    details: (id: string) => requests.get<Post>(`/posts/${id}`),
+    create: (post: Post) => requests.post<void>('/posts', post),
+    update: (post: Post) => requests.put<void>(`/posts/${post.id}`, post),
+    delete: (id: string) => requests.del<void>(`/posts/${id}`)
 }
 
 const agent = {

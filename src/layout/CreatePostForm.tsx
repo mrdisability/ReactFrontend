@@ -14,12 +14,14 @@ export default function CreatePostForm({post: selectedPost, handleFormClose, cre
     const date = new Date();
     let createdDate = date.toString();
 
+    // Make date empty as its causing issues
+
     // Checing if post exists or not
     const initialState = selectedPost ?? {
         id: uuidv4(),
         title: '',
         body: '',
-        createdDate: createdDate,
+        createdDate: '2024-10-02T12:28:05.342Z',
         tag: ''
     }
 
