@@ -62,12 +62,16 @@ function App() {
   }
 
   function handleDeletePost(id: string) {
-    setPosts([...posts.filter(x => x.id !== id)])
+    if (confirm("Are you sure you want to delete post?")) {
+      agent.Posts.delete(id).then(() => {
+        setPosts([...posts.filter(x => x.id !== id)])
+      })
+    }
   }
 
   function handleCreatePost(post: Post) {
     console.log(post)
-    
+
     agent.Posts.create(post).then(() => {
       setPosts([...posts, post]);
       setEditMode(false);
