@@ -13,6 +13,13 @@ function App() {
 
   const [createMode, setCreateMode] = useState(false);
 
+  useEffect(() => {
+    axios.get<Post[]>("http://localhost:5032/api/posts")
+      .then(res => {
+        setPosts(res.data)
+      })
+  })
+
   function handleSelectPost(id: string) {
     setSelectedPost(posts.find(x => x.id === id));
     setCreateMode(false);
@@ -62,13 +69,6 @@ function App() {
 
     console.log(post)
   }
-
-  useEffect(() => {
-    axios.get<Post[]>("http://localhost:5032/api/posts")
-      .then(res => {
-        setPosts(res.data)
-      })
-  })
 
   return (
     <div>
