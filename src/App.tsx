@@ -32,19 +32,16 @@ function App() {
 
   // ...post means it gets all the values of post
 
-  function handleCreateOrEditPost(post: Post) {
-    // const date = new Date();
-    // let createdDate = date.toString();
-
-    console.log(post)
-
-    post.id
-      ? setPosts([...posts.filter(x => x.id !== post.id), post])
-      : setPosts([...posts, {...post, id: uuidv4()}]);
+  function handleEditPost(post: Post) {
+    setPosts([...posts.filter(x => x.id !== post.id), post])
     setEditMode(false);
     setSelectedPost(post);
+  }
 
-    console.log(post)
+  function handleCreatePost(post: Post) {
+    setPosts([...posts, post]);
+    setEditMode(false);
+    setSelectedPost(post);
   }
 
   useEffect(() => {
@@ -67,7 +64,7 @@ function App() {
         handleFormOpen={handleFormOpen}
         handleFormClose={handleFormClose}
         editMode={editMode}
-        handleCreateOrEditPost={handleCreateOrEditPost}
+        editPost={handleEditPost}
         />
     </div>
   )

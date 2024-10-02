@@ -11,12 +11,12 @@ interface Props {
     editMode: boolean;
     handleFormOpen: (id: string) => void;
     handleFormClose: () => void;
-    handleCreateOrEditPost: (post: Post) => void;
+    editPost: (post: Post) => void;
 }
 
 export default function PostDashboard({posts, selectedPost, 
     selectPost, cancelSelectPost, handleFormOpen, handleFormClose, editMode,
-        handleCreateOrEditPost}: Props) {
+        editPost}: Props) {
     return (
         <Grid>
             <Grid.Column width="10">
@@ -55,7 +55,7 @@ export default function PostDashboard({posts, selectedPost,
                     <PostForm 
                         post={selectedPost}
                         handleFormClose={handleFormClose}
-                        handleCreateOrEditPost={handleCreateOrEditPost}/>}
+                        editPost={editPost}/>}
                 
             </Grid.Column>
         </Grid>

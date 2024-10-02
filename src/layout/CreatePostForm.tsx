@@ -9,7 +9,7 @@ interface Props {
     handleCreateOrEditPost: (post: Post) => void;
 }
 
-export default function PostForm({post: selectedPost, handleFormClose, handleCreateOrEditPost}: Props) {
+export default function CreatePostForm({post: selectedPost, handleFormClose, handleCreateOrEditPost}: Props) {
 
     const date = new Date();
     let createdDate = date.toString();
