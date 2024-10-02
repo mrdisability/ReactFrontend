@@ -26,7 +26,7 @@ export default function CreatePostForm({post: selectedPost, handleFormClose, cre
     const [post, setPost] = useState(initialState);
 
     function handleSubmit() {
-        // console.log(post);
+        console.log(post);
 
         createPost(post)
     }

@@ -34,6 +34,7 @@ function App() {
 
   function handleFormClose() {
     setEditMode(false);
+    setCreateMode(false);
   }
 
   // ...post means it gets all the values of post
@@ -42,12 +43,17 @@ function App() {
     setPosts([...posts.filter(x => x.id !== post.id), post])
     setEditMode(false);
     setSelectedPost(post);
+    setCreateMode(false);
   }
 
   function handleCreatePost(post: Post) {
+    console.log(post)
+    
     setPosts([...posts, post]);
     setEditMode(false);
     setSelectedPost(post);
+
+    console.log(post)
   }
 
   useEffect(() => {

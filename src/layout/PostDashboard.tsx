@@ -63,6 +63,7 @@ export default function PostDashboard({posts, selectedPost,
                 {/* Only open when in edit mode */}
                 {createMode && 
                     <CreatePostForm 
+                        post={selectedPost}
                         handleFormClose={handleFormClose}
                         createPost={createPost}/>}
                 
