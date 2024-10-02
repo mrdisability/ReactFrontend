@@ -19,7 +19,7 @@ interface Props {
 
 export default function PostDashboard({posts, selectedPost, 
     selectPost, cancelSelectPost, handleFormOpen, handleFormClose, editMode,
-        editPost, createMode}: Props) {
+        editPost, createMode, createPost}: Props) {
     return (
         <Grid>
             <Grid.Column width="10">
