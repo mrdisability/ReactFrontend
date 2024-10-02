@@ -47,10 +47,9 @@ function App() {
   }
 
   function handleCreatePost(post: Post) {
-    console.log(post)
-    
     setPosts([...posts, post]);
     setEditMode(false);
+    setCreateMode(false);
     setSelectedPost(post);
 
     console.log(post)
@@ -65,7 +64,7 @@ function App() {
 
   return (
     <div>
-      <NavBar formOpen={handleFormOpen}/>
+      <NavBar formOpen={handleCreateFormOpen}/>
 
       <Container style={{marginTop: "7em"}}/>
 
