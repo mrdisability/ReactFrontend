@@ -1,7 +1,8 @@
 import { Button, Grid, Item, ItemContent, ItemDescription, ItemExtra, ItemHeader, ItemMeta, Label, Segment } from "semantic-ui-react";
 import { Post } from "../models/post";
 import PostDetails from "./PostDetails";
-import PostForm from "./PostForm";
+import EditPostForm from "./EditPostForm";
+import CreatePostForm from "./CreatePostForm";
 
 interface Props {
     posts: Post[];
@@ -12,11 +13,13 @@ interface Props {
     handleFormOpen: (id: string) => void;
     handleFormClose: () => void;
     editPost: (post: Post) => void;
+    createMode: boolean;
+    createPost: (post: Post) => void;
 }
 
 export default function PostDashboard({posts, selectedPost, 
     selectPost, cancelSelectPost, handleFormOpen, handleFormClose, editMode,
-        editPost}: Props) {
+        editPost, createMode}: Props) {
     return (
         <Grid>
             <Grid.Column width="10">
@@ -52,10 +55,16 @@ export default function PostDashboard({posts, selectedPost,
 
                 {/* Only open when in edit mode */}
                 {editMode && 
-                    <PostForm 
+                    <EditPostForm 
                         post={selectedPost}
                         handleFormClose={handleFormClose}
                         editPost={editPost}/>}
+
+                {/* Only open when in edit mode */}
+                {createMode && 
+                    <CreatePostForm 
+                        handleFormClose={handleFormClose}
+                        createPost={createPost}/>}
                 
             </Grid.Column>
         </Grid>

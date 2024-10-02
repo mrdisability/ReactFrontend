@@ -5,13 +5,13 @@ import { Container } from 'semantic-ui-react'
 import { Post } from './models/post'
 import NavBar from './layout/NavBar'
 import PostDashboard from './layout/PostDashboard'
-// import {v4 as uuid} from 'uuid'
-import { v4 as uuidv4 } from 'uuid';
 
 function App() {
   const [posts, setPosts] = useState<Post[]>([]);
   const [selectedPost, setSelectedPost] = useState<Post | undefined>(undefined);
   const [editMode, setEditMode] = useState(false);
+
+  const [createMode, setCreateMode] = useState(false);
 
   function handleSelectPost(id: string) {
     setSelectedPost(posts.find(x => x.id === id));
@@ -24,6 +24,12 @@ function App() {
   function handleFormOpen(id?: string) {
     id ? handleSelectPost(id) : handleCancelSelectPost();
     setEditMode(true);
+  }
+
+  // Show create form when pressing on navbar button
+  function handleCreateFormOpen(id?: string) {
+    setCreateMode(true);
+    setEditMode(false);
   }
 
   function handleFormClose() {
@@ -65,6 +71,8 @@ function App() {
         handleFormClose={handleFormClose}
         editMode={editMode}
         editPost={handleEditPost}
+        createMode={createMode}
+        createPost={handleCreatePost}
         />
     </div>
   )

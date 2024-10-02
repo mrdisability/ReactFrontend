@@ -6,10 +6,10 @@ import { v4 as uuidv4 } from 'uuid';
 interface Props {
     post: Post | undefined;
     handleFormClose: () => void;
-    handleCreateOrEditPost: (post: Post) => void;
+    createPost: (post: Post) => void;
 }
 
-export default function CreatePostForm({post: selectedPost, handleFormClose, handleCreateOrEditPost}: Props) {
+export default function CreatePostForm({post: selectedPost, handleFormClose, createPost}: Props) {
 
     const date = new Date();
     let createdDate = date.toString();
@@ -28,19 +28,13 @@ export default function CreatePostForm({post: selectedPost, handleFormClose, han
     function handleSubmit() {
         // console.log(post);
 
-        handleCreateOrEditPost(post)
+        createPost(post)
     }
 
     function handleInputChange(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
         const {name, value} = event.target;
         setPost({...post, [name]: value});
     }
-
-    // Function for text area
-    // function handleTextAreaChange(event: ChangeEvent<HTMLTextAreaElement>) {
-    //     const {name, value} = event.target;
-    //     setPost({...post, [name]: value});
-    // }
 
     return (
         <Segment clearing>
